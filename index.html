@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3e7dc">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Take a wedding photo and send the original file to the couple’s album.">
+  <title>Share a wedding photo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <noscript>
+    <p class="notice noscript">Turn on JavaScript to share photos from this page.</p>
+  </noscript>
+  <main class="wrap">
+    <header class="hero">
+      <svg class="ornament" viewBox="0 0 120 28" aria-hidden="true">
+        <path d="M8 18c8-14 16-14 22-2 4 8 2 12-2 12" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M112 18c-8-14-16-14-22-2-4 8-2 12 2 12" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M28 16h64" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="60" cy="16" r="3.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      <p class="eyebrow">Our wedding</p>
+      <h1>Share a photo</h1>
+      <p class="lede">Use your camera. We keep every picture at full quality — nothing is resized or recompressed.</p>
+    </header>
+
+    <div id="setup-notice" class="notice" hidden>
+      <p class="notice-title">Not set up yet</p>
+      <p>This page isn’t connected to the photo album, so pictures can’t be saved. Please check back soon.</p>
+    </div>
+
+    <label class="name" for="guest-name">
+      <span>Your name <span class="optional">optional</span></span>
+      <input id="guest-name" type="text" maxlength="60" autocomplete="name" enterkeyhint="done" placeholder="So we know who took it">
+    </label>
+
+    <div class="actions">
+      <label class="btn btn-primary">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5h2.2l1.2-2h9.2l1.2 2H20a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 20 19.5H4A1.5 1.5 0 0 1 2.5 18V10A1.5 1.5 0 0 1 4 8.5Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="13.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Take photo</span>
+        <input id="camera-input" class="file-input" type="file" accept="image/*" capture="environment" multiple>
+      </label>
+      <label class="btn btn-secondary">
+        <span>Choose from gallery</span>
+        <input id="gallery-input" class="file-input" type="file" accept="image/*" multiple>
+      </label>
+    </div>
+
+    <section class="album" aria-labelledby="tally-heading">
+      <div class="tally">
+        <h2 id="tally-heading" class="tally-main"><span id="saved-count">0</span> saved</h2>
+        <p id="queue-status" class="tally-sub" aria-live="polite"></p>
+      </div>
+      <p id="empty" class="empty">Photos you take will line up here.</p>
+      <ol id="photo-list" class="photo-list"></ol>
+    </section>
+
+    <footer class="foot">
+      <p>Original quality. The file on your phone is what gets saved.</p>
+      <p id="folder-note" hidden>Saved to a Google Drive folder named Wedding.</p>
+    </footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

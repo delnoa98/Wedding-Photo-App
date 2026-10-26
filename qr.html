@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scan to share your photos with us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #3c2a26;
+      --muted: #6f584f;
+      --gold: #a07b45;
+      --paper: #f3e7dc;
+      --line: #e4d3c4;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Nunito Sans", "Segoe UI", sans-serif;
+      background: var(--paper);
+    }
+
+    .hint {
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: 28px 20px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sheet {
+      width: min(100% - 32px, 640px);
+      margin: 20px auto 40px;
+      padding: 18px;
+    }
+
+    .card {
+      background: #fffaf5;
+      border: 1px dashed var(--gold);
+      border-radius: 28px;
+      padding: 42px 32px 36px;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(92, 52, 38, 0.08);
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    h1 {
+      margin: 12px auto 0;
+      max-width: 16ch;
+      font-family: "Cormorant Garamond", Palatino, Georgia, serif;
+      font-size: 48px;
+      font-weight: 500;
+      line-height: 0.95;
+    }
+
+    .qr {
+      width: min(100%, 360px);
+      height: auto;
+      margin: 28px auto 0;
+      display: block;
+      background: white;
+      padding: 12px;
+    }
+
+    .caption {
+      margin: 22px 0 0;
+      font-family: "Cormorant Garamond", Palatino, Georgia, serif;
+      font-size: 28px;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .url {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    @page {
+      size: letter;
+      margin: 0.6in;
+    }
+
+    @media print {
+      body { background: white; }
+      .hint { display: none; }
+      .sheet { width: auto; margin: 0; padding: 0; }
+      .card { box-shadow: none; border-style: solid; }
+    }
+  </style>
+</head>
+<body>
+  <p class="hint">Print this page and set the card on a table. The dashed line is the edge of the card.</p>
+  <div class="sheet">
+    <article class="card">
+      <p class="eyebrow">Our wedding</p>
+      <h1>You’re invited to take photos</h1>
+      <img class="qr" src="qr.png" width="720" height="720" alt="QR code for https://delnoa98.github.io/Wedding-Photo-App/">
+      <p class="caption">Scan to share your photos with us</p>
+      <p class="url">delnoa98.github.io/Wedding-Photo-App</p>
+    </article>
+  </div>
+</body>
+</html>
