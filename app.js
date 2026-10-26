@@ -262,7 +262,11 @@
       })
       .catch(function (err) {
         item.status = "failed";
-        item.error = (err && err.message) || "Couldn't save this photo.";
+        var message = (err && err.message) || "Couldn't save this photo.";
+        if (/^Failed to fetch$|^NetworkError|^Load failed$/.test(message)) {
+          message = "Couldn't reach the album. Check your connection and try again.";
+        }
+        item.error = message;
         item.canRetry = !(err && err.tooLarge);
       })
       .then(function () {

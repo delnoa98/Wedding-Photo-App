@@ -254,7 +254,7 @@ h1 {
   background: var(--blush);
 }
 
-.photo.is-uploading img { animation: pulse 1.2s ease-in-out infinite; }
+.photo.is-uploading .photo-status { animation: pulse 1.2s ease-in-out infinite; }
 
 .photo-name {
   margin: 0;
@@ -337,7 +337,7 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .photo.is-uploading img { animation: none; }
+  .photo.is-uploading .photo-status { animation: none; }
 }
 
 @media (min-width: 720px) {
