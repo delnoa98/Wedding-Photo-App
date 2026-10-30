@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3e7dc">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Leave a message or a voice note for the couple.">
+  <title>Leave a message</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-book">
+  <noscript>
+    <p class="notice noscript">Turn on JavaScript to leave a message from this page.</p>
+  </noscript>
+  <main class="wrap">
+    <nav class="switch" aria-label="Wedding pages">
+      <a href="index.html">Photos</a>
+      <a href="guestbook.html" aria-current="page">Guest book</a>
+    </nav>
+
+    <header class="hero">
+      <svg class="ornament" viewBox="0 0 120 28" aria-hidden="true">
+        <path d="M8 18c8-14 16-14 22-2 4 8 2 12-2 12" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M112 18c-8-14-16-14-22-2-4 8-2 12 2 12" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M28 16h64" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="60" cy="16" r="3.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      <p class="eyebrow">Our wedding</p>
+      <h1>Leave a message</h1>
+      <p class="lede">Write something for the couple, record a voice note, or both. We save it with the photos.</p>
+    </header>
+
+    <div id="setup-notice" class="notice" hidden>
+      <p class="notice-title">Not set up yet</p>
+      <p>This page isn’t connected to the guest book, so messages can’t be saved. Please check back soon.</p>
+    </div>
+
+    <form id="book-form" action="#" novalidate>
+      <label class="name" for="guest-name">
+        <span>Your name <span class="flag">required</span></span>
+        <input id="guest-name" type="text" maxlength="60" autocomplete="name" enterkeyhint="next" placeholder="So they know who it’s from" aria-required="true">
+      </label>
+
+      <label class="name" for="message">
+        <span>Message</span>
+        <textarea id="message" rows="5" maxlength="4000" placeholder="A wish, a memory, a toast…" enterkeyhint="enter"></textarea>
+      </label>
+      <p class="field-help">Type a note, record one below, or do both.</p>
+
+      <section class="voice" aria-labelledby="voice-heading">
+        <h2 id="voice-heading">Voice note <span class="flag">optional</span></h2>
+        <p class="field-help">Up to 2 minutes. You can listen before sending.</p>
+        <div class="voice-actions">
+          <button id="record-btn" class="btn btn-primary" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.2" fill="currentColor"/></svg>
+            <span>Record a voice note</span>
+          </button>
+          <p id="rec-status" class="rec-status" role="status" hidden>
+            <span class="rec-dot" aria-hidden="true"></span>
+            <span id="rec-time">0:00</span>
+            <span class="rec-max">/ 2:00</span>
+          </p>
+          <button id="stop-btn" class="btn btn-primary" type="button" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.6" fill="currentColor"/></svg>
+            <span>Stop</span>
+          </button>
+          <audio id="playback" controls playsinline preload="auto" hidden aria-label="Your voice note"></audio>
+          <button id="replay-btn" class="btn btn-secondary" type="button" hidden>Replay</button>
+          <button id="rerecord-btn" class="btn btn-secondary" type="button" hidden>Re-record</button>
+        </div>
+        <p id="voice-note" class="field-help voice-note" role="status" hidden></p>
+        <p id="mic-error" class="mic-error" role="status" hidden></p>
+      </section>
+
+      <button id="submit-btn" class="btn btn-primary submit-btn" type="submit">Add to the guest book</button>
+      <p id="form-error" class="banner" role="alert" hidden></p>
+    </form>
+
+    <section id="success" class="success" tabindex="-1" hidden>
+      <div class="success-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M6 12.5 10 16.5 18 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="success-kicker">Saved</p>
+      <h2>It’s in the guest book</h2>
+      <p id="thanks" class="success-copy">Thank you. The couple will read this with the photos.</p>
+      <button id="another" class="btn btn-primary" type="button">Leave another message</button>
+      <a class="btn btn-secondary" href="index.html">Share a photo</a>
+    </section>
+
+    <footer class="foot">
+      <p>Only the couple can open what you leave here.</p>
+    </footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="guestbook.js"></script>
+</body>
+</html>
