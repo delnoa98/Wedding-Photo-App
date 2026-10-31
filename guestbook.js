@@ -177,16 +177,18 @@
     rerecordBtn.disabled = busy;
   }
 
-  // Chrome/Android record WebM Opus. iPhone Safari records audio/mp4 and
-  // rejects a WebM mime type, so the first supported type wins at runtime.
+  // Prefer MP4/AAC. Drive's preview and iPhone playback won't play WebM/Opus,
+  // and MediaRecorder WebM often has no duration. Safari, desktop Chrome, and
+  // Android Chrome support audio/mp4, so the first supported type wins;
+  // WebM and Ogg are used only when MP4 is not.
   function mimeCandidates() {
     return [
+      "audio/mp4;codecs=mp4a.40.2",
+      "audio/mp4",
+      "audio/aac",
       "audio/webm;codecs=opus",
       "audio/webm",
-      "audio/ogg;codecs=opus",
-      "audio/mp4",
-      "audio/mp4;codecs=mp4a.40.2",
-      "audio/aac"
+      "audio/ogg;codecs=opus"
     ];
   }
 
